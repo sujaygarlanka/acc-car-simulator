@@ -1,3 +1,3 @@
 # acc-car-simulator
 
-![demo](demo.gif)
+![demo](media/demo.gif)

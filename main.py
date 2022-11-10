@@ -58,7 +58,7 @@ class Simulator:
         metrics = self._get_metrics()
         font = pygame.font.Font('freesansbold.ttf', 20)
 
-        bg_surface = pygame.image.load('background.jpg')
+        bg_surface = pygame.image.load('media/background.jpg')
         bg_surface = pygame.transform.scale(bg_surface, (393.53, 200))
         # bg_surface_rect = bg_surface.get_rect(center = (self.width/2, self.height/2))
         self.screen.blit(bg_surface, (self.bg_location_x, 0))
@@ -79,12 +79,12 @@ class Simulator:
         d_rect.center = (650, 10)
         self.screen.blit(d_text, d_rect)
 
-        ego_car_surface = pygame.image.load('ego_car.png')
+        ego_car_surface = pygame.image.load('media/ego_car.png')
         ego_car_surface = pygame.transform.scale(ego_car_surface, (69,40))
         ego_car_rect = ego_car_surface.get_rect(center = self._pygame_convert_coord(self.ego_car.get_location()))
         self.screen.blit(ego_car_surface, ego_car_rect)
         
-        lead_car_surface = pygame.image.load('lead_car.png')
+        lead_car_surface = pygame.image.load('media/lead_car.png')
         lead_car_surface = pygame.transform.scale(lead_car_surface, (69,40))
         lead_car_rect = lead_car_surface.get_rect(center = self._pygame_convert_coord(self.lead_car.get_location()))
         self.screen.blit(lead_car_surface, lead_car_rect)
