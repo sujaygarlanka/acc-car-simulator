@@ -22,16 +22,18 @@ class Controller:
 
         Below is some example code where the car just outputs the control value 10.0
         """
-
+        
         ego_velocity = obs.velocity
         target_velocity = obs.target_velocity
         dist_to_lead = obs.distance_to_lead
-
+        
+        # 0.1, 0.1 for Carla
         d_curr_error = dist_to_lead - (self.distance_threshold + 10)
         d_proportional = 0.3 * (d_curr_error)
         d_derivative = 0.1 * ((d_curr_error - self.d_prev_error)/0.1)
         self.d_prev_error = d_curr_error
-
+        
+        # 0.7, 0.7 for Carla 
         v_curr_error = target_velocity - ego_velocity
         v_proportional = 0.3 * v_curr_error
         v_derivative = 0.1 * ((v_curr_error - self.v_prev_error)/0.1)
@@ -40,7 +42,7 @@ class Controller:
         output1 = v_proportional + v_derivative
         output2 = d_proportional + d_derivative
         output = min(output1, output2)
-        # return 10
+
         if output < -10.0:
             return -10.0
         elif output > 10.0:
